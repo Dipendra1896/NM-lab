@@ -1,5 +1,4 @@
-// C++ program for implementation of bisection Method for
-// solving equations
+// C++ program for implementation of bisection Method for solving equations
 #include <iostream>
 #include <iomanip>
 #define EPSILON 0.0001
@@ -36,7 +35,7 @@ void bisection(double a, double b)
 		cout<<a<<"\t\t"<<b<<"\t\t"<<nextValue<<"\t\t"<<funcA<<"\t\t"<<funcB<<"\t\t"<<funcNextValue<<"\t\t"<<error<<endl;
 		if (error<= EPSILON||retAbsVal(funcNextValue)<= EPSILON)
 		{
-			cout << "----------------------------------------------------------------------------------" << endl;
+			cout << "--------------------------------------------------------------------------------------------------------" << endl;
 			cout << "\t\tsolution is:" << nextValue << endl;
 			return;
 		}
@@ -56,15 +55,18 @@ void bisection(double a, double b)
 	}
 	else
 	{
-		cout << "You have not assumed valid a and b" << endl;
+		cout << "choose valid a and b" << endl;
 	}
 }
 
 // main program to test above method
 int main()
 {
-	double firstValue = -2;	 // Initial first values assumed
-	double secondValue = -1; // Initial second values assumed
+	// double firstValue = -2;	 // Initial first values assumed
+	// double secondValue = -1; // Initial second values assumed
+	double firstValue,secondValue;
+	cout<<"Enter two initial guesses(a and b):"<<endl;
+	cin>>firstValue>>secondValue;
 	cout<<"firstValue\t"<<"secondValue\t"<<"nextValue\t"<<"F(A)\t\t"<<"F(B)\t\t"<<"F(C)\t\t"<<"Error\t"<<endl;
 	bisection(firstValue, secondValue);
 	return 0;
