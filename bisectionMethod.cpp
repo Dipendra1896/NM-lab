@@ -37,7 +37,7 @@ void bisection(double a, double b)
 		{
 			cout << "--------------------------------------------------------------------------------------------------------" << endl;
 			cout << "\t\tsolution is:" << nextValue << endl;
-			return;
+			return ;
 		}
 		else if (funcA * funcNextValue < 0)
 		{
@@ -49,7 +49,7 @@ void bisection(double a, double b)
 			a = nextValue;
 			bisection(a, b);
 		}else{
-			cout<<"unknown error occurred!!!!!"<<endl;
+			cout<<"unknown error occurred!!!"<<endl;
 			return;
 		}
 	}
