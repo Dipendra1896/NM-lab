@@ -17,21 +17,22 @@ double secantMethod(double a, double b) {
 
     do {
         nextValue = b - (funcB * (b - a) / (funcB - funcA));
-        error = abs(nextValue - b);     
+        error = abs(nextValue - b);  
+        //setting fixed space to print output data with proper alignment   
         cout<<setw(9)<< iteration+1;
         cout<<setw(18)<<a;
         cout<<setw(16)<<b;
         cout<<setw(18)<<funcA;
         cout<<setw(16)<<funcB;
         cout<<setw(18)<<nextValue<<endl;
-                                                                                  
+                                                                          
         a = b;
         b = nextValue;
         funcA = func(a);
         funcB = func(b);
         iteration++;
-    } while (error >= EPS);
-
+    } while (error >= EPS); //when the  error becomes less or equal to the tolerance(EPS) the 
+    //codition becomes false and execution goes to out of the loop
     cout<<"-------------------------------------------------------------------------------"<<endl;
     cout << "Required root is: " << nextValue << endl;
     return nextValue;
