@@ -12,13 +12,19 @@ double secantMethod(double a, double b) {
     int iteration = 0;
     funcA = func(a);
     funcB = func(b);
+    cout << fixed << setprecision(4);
+    cout<<"     Iteration\t\tA\t\tB\t\tf(A)\t\tf(B)\t\tNextValue"<<endl;
 
     do {
         nextValue = b - (funcB * (b - a) / (funcB - funcA));
-        error = abs(nextValue - b);                                         
-                                                                                                         
-        cout << fixed << setprecision(4);
-        cout << "Iteration " << iteration + 1<<":\t"<<a<<"\t\t"<<b<<"\t\t"<<funcA<<"\t\t"<<funcB<<"\t\t"<<nextValue<<endl;
+        error = abs(nextValue - b);     
+        cout<<setw(9)<< iteration+1;
+        cout<<setw(18)<<a;
+        cout<<setw(16)<<b;
+        cout<<setw(18)<<funcA;
+        cout<<setw(16)<<funcB;
+        cout<<setw(18)<<nextValue<<endl;
+                                                                                  
         a = b;
         b = nextValue;
         funcA = func(a);
@@ -26,14 +32,13 @@ double secantMethod(double a, double b) {
         iteration++;
     } while (error >= EPS);
 
+    cout<<"-------------------------------------------------------------------------------"<<endl;
     cout << "Required root is: " << nextValue << endl;
-    cout << "Number of iterations: " << iteration << endl;
     return nextValue;
 }
 
 int main() {
     double a = 4.0000, b = 2.0000;
-    cout << "\t\tA\t\t" << "B\t\t" << "f(A)\t\t\t" << "f(B)\t\t" << "nextValue" << endl;
     secantMethod(a, b);
     return 0;
 }
